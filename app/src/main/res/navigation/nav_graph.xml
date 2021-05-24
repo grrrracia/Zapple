@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="id.ac.umn.zapplemobileapp.fragments.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_eachRestaurant"
+            android:name="action_homeFragment_to_eachRestaurant"
+            app:destination="@id/eachRestaurant"/>
+        <action
+            android:id="@+id/action_homeFragment_to_favouriteRestaurants"
+            app:destination="@id/favouriteRestaurants" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchActivity"
+            app:destination="@id/searchActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutUsFragment"
+            app:destination="@id/aboutUsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_myAccountFragment"
+            app:destination="@id/myAccountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_editProfile"
+            app:destination="@id/editProfile" />
+    </fragment>
+    <fragment
+        android:id="@+id/eachRestaurant"
+        android:name="id.ac.umn.zapplemobileapp.fragments.EachRestaurantFragment"
+        android:label="each_restaurant_fragment"
+        tools:layout="@layout/fragment_each_restaurant" >
+        <action
+            android:id="@+id/action_eachRestaurant_to_addAReviewFrag"
+            app:destination="@id/addAReviewFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteRestaurants"
+        android:name="id.ac.umn.zapplemobileapp.fragments.FavouriteRestaurants"
+        android:label="favourite_restaurants_fragment"
+        tools:layout="@layout/fragment_favourite_restaurant" >
+        <action
+            android:id="@+id/action_favouriteRestaurants_to_eachRestaurant"
+            app:destination="@id/eachRestaurant" />
+    </fragment>
+    <activity
+        android:id="@+id/searchActivity"
+        android:name="id.ac.umn.zapplemobileapp.SearchActivity"
+        android:label="activity_search"
+        tools:layout="@layout/activity_search" />
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="id.ac.umn.zapplemobileapp.fragments.AboutUsFragment"
+        android:label="fragment_aboutus"
+        tools:layout="@layout/fragment_aboutus" />
+    <fragment
+        android:id="@+id/myAccountFragment"
+        android:name="id.ac.umn.zapplemobileapp.fragments.MyAccountFragment"
+        android:label="fragment_my_account"
+        tools:layout="@layout/fragment_my_account" />
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="id.ac.umn.zapplemobileapp.fragments.EditProfile"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/addAReviewFrag"
+        android:name="id.ac.umn.zapplemobileapp.fragments.addAReviewFrag"
+        android:label="fragment_add_a_review"
+        tools:layout="@layout/fragment_add_a_review" />
+</navigation>

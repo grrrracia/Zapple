@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/foodimg"
+            android:layout_gravity="center_vertical"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvReviewTitle"
+                android:text="Review #1 by username1"
+                android:fontFamily="@font/glacialindifference_regular"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/prussianBlue"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvReviewContent"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. o consequat."
+                android:fontFamily="@font/glacialindifference_regular"
+                android:textSize="15dp"
+                android:layout_marginLeft="8dp"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="8dp">
+                <ImageView
+                    android:id="@+id/icRating"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ratingicon"/>
+
+                <TextView
+                    android:id="@+id/tvReviewRating"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:text="4.5 out of 5"
+                    android:textColor="@color/prussianBlue"
+                    android:fontFamily="@font/glacialindifference_regular"
+                    android:textSize="15dp"
+                    android:layout_margin="3dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

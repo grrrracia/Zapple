@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backBeige"
+    tools:context=".fragments.HomeFragment"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="147dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/box"
+                android:orientation="vertical"
+                android:padding="25dp">
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:srcCompat="@drawable/spoonfork" />
+
+                <TextView
+                    android:id="@+id/tvWelcomeName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/glacialindifference_regular"
+                    android:text="Welcome Zappler"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/tvWelcomeMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/glacialindifference_regular"
+                    android:text="What are you in the mood for today?" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Popular Cuisine Types"
+                android:textSize="20dp"
+                android:fontFamily="@font/glacialindifference_regular"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                />
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="15dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:id="@+id/btnCafe"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/cafe" />
+
+                        <TextView
+                            android:id="@+id/tvCafe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cafe"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+
+                        <ImageView
+                            android:id="@+id/btnNoodles"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_weight="1"
+                            app:srcCompat="@drawable/noodles" />
+
+                        <TextView
+                            android:id="@+id/tvNoodles"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Noodles"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:id="@+id/btnFastFood"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/fastfood" />
+
+                        <TextView
+                            android:id="@+id/tvFastFood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Fast Food"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+
+                        <ImageView
+                            android:id="@+id/btnPizza"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/pizza" />
+
+                        <TextView
+                            android:id="@+id/tvPizza"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pizza"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:id="@+id/btnJapanese"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/japanese" />
+
+                        <TextView
+                            android:id="@+id/tvJapanese"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Japanese"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+
+                        <ImageView
+                            android:id="@+id/btnStreetFood"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/streetfood" />
+
+                        <TextView
+                            android:id="@+id/tvStreetFood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Street Food"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <ImageView
+                            android:id="@+id/btnBarbeque"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/meat" />
+
+                        <TextView
+                            android:id="@+id/tvBarbeque"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Barbeque"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+
+                        <ImageView
+                            android:id="@+id/btnSeafood"
+                            android:layout_width="75dp"
+                            android:layout_height="78dp"
+                            app:srcCompat="@drawable/seafood" />
+
+                        <TextView
+                            android:id="@+id/tvSeafood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Seafood"
+                            android:textAlignment="center"
+                            android:fontFamily="@font/glacialindifference_regular"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search Through the Map"
+                android:textSize="20dp"
+                android:fontFamily="@font/glacialindifference_regular"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="25dp"/>
+
+            <ImageView
+                android:id="@+id/btnMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:srcCompat="@drawable/mapplaceholder" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/glacialindifference_regular"
+                android:text="Restaurant of the Day"
+                android:textSize="20dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="184dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="35dp"
+                android:background="@drawable/box"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                android:id="@+id/llrestaurantOfTheDay">
+
+                    <ImageView
+                        android:id="@+id/imgRestoOftheDay"
+                        android:layout_width="220dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/foodimg" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvRestoName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:fontFamily="@font/glacialindifference_regular"
+                                android:text="KFC"
+                                android:textColor="@color/black"
+                                android:textSize="25dp" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="5dp">
+
+                                <ImageView
+                                    android:id="@+id/icLocation"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:srcCompat="@drawable/locationicon" />
+
+                                <TextView
+                                    android:id="@+id/tvLocation"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/glacialindifference_regular"
+                                    android:text="Jl. Ayam Goreng Krispy No. 12, AyamLand"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="5dp">
+
+                                <ImageView
+                                    android:id="@+id/icMoney"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:srcCompat="@drawable/moneyicon" />
+
+                                <TextView
+                                    android:id="@+id/tvMoney"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/glacialindifference_regular"
+                                    android:text="100k - 150k for two people"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:layout_marginLeft="5dp">
+
+                                <ImageView
+                                    android:id="@+id/icRating"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    app:srcCompat="@drawable/ratingicon" />
+
+                                <TextView
+                                    android:id="@+id/tvRating"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="3dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/glacialindifference_regular"
+                                    android:text="4.5 out of 5"
+                                    android:textColor="@color/black"
+                                    android:textSize="15dp" />
+                            </LinearLayout>
+                        </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

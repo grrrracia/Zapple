@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=73:16:6B:37:CC:B4:C4:06:9D:1B:75:27:7E:8E:B8:13:1C:3B:49:A0%3Bid.ac.umn.zapplemobileapp
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    id.ac.umn.zapplemobileapp
+
+    SHA-1 certificate fingerprint:
+    73:16:6B:37:CC:B4:C4:06:9D:1B:75:27:7E:8E:B8:13:1C:3B:49:A0
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyC5MMUEJfhnZ_C0CcmEaL-mco-J2FMDw4k</string>
+</resources>
