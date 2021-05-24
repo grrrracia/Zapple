@@ -28,7 +28,7 @@
                 android:background="@color/white">
 
                 <ImageView
-                    android:id="@+id/btnQuitAddReview"
+                    android:id="@+id/btnBackFromResto"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
 
                 <TextView
                     android:id="@+id/tvRestaurantName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/glacialindifference_regular"
@@ -92,8 +92,10 @@
                     android:src="@drawable/emptyhearticon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.326"
                     app:layout_constraintStart_toEndOf="@+id/tvRestaurantName"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout

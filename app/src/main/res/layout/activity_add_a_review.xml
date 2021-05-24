@@ -102,7 +102,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@color/white"
                 android:fontFamily="@font/glacialindifference_regular"
-                android:textSize="10dp"
+                android:textSize="20dp"
                 android:maxLength="750"
                 android:hint="Tell us about your experience..."
                 app:layout_constraintEnd_toEndOf="parent"

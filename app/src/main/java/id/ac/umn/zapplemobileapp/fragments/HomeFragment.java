@@ -62,8 +62,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         seedData(view);
         seedListener();
 
-        gotoRestoOfTheDay = view.findViewById(R.id.llrestaurantOfTheDay);
-        gotoRestoOfTheDay.setOnClickListener(this);
+//        gotoRestoOfTheDay = view.findViewById(R.id.llrestaurantOfTheDay);
+//        gotoRestoOfTheDay.setOnClickListener(this);
 
         mapArea = view.findViewById(R.id.btnMap);
         mapArea.setOnClickListener(new View.OnClickListener() {

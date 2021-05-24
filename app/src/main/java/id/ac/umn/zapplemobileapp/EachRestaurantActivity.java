@@ -58,6 +58,8 @@ public class EachRestaurantActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView tvRestoName, tvAddress, tvPriceRange, tvRating;
     ImageView icHeart;
+    ImageView btnBackFromResto;
+    TextView headerRestoName;
 
     String[] image;
     String name, address, phone;
@@ -73,6 +75,14 @@ public class EachRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_restaurant);
         seedData();
+
+        btnBackFromResto = findViewById(R.id.btnBackFromResto);
+        btnBackFromResto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void unsetFavourite(Integer restaurantID){
@@ -154,6 +164,8 @@ public class EachRestaurantActivity extends AppCompatActivity {
         tvPriceRange = findViewById(R.id.tvMoney);
         tvRating = findViewById(R.id.tvRating);
         icHeart = findViewById(R.id.icFavourite);
+
+        headerRestoName = findViewById(R.id.headerRestoName);
 
         recyclerView = findViewById(R.id.recyclerViewReview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -244,6 +256,12 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 tvAddress.setText(address);
                 tvPriceRange.setText(price + " per pax");
                 tvRating.setText(rating + " out of 5");
+
+                String pageHeader = name;
+                String[] result = pageHeader.split("\\s+");
+                pageHeader = result[0]+" "+result[1];
+
+                headerRestoName.setText(pageHeader);
 
                 if(isFavourite){
                     icHeart.setImageResource(R.drawable.hearticon);

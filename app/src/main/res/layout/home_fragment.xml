@@ -233,123 +233,123 @@
                 android:layout_marginRight="20dp"
                 app:srcCompat="@drawable/mapplaceholder" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/glacialindifference_regular"
-                android:text="Restaurant of the Day"
-                android:textSize="20dp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="20dp"-->
+<!--                android:layout_marginTop="25dp"-->
+<!--                android:layout_marginRight="20dp"-->
+<!--                android:fontFamily="@font/glacialindifference_regular"-->
+<!--                android:text="Restaurant of the Day"-->
+<!--                android:textSize="20dp" />-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="184dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="35dp"
-                android:background="@drawable/box"
-                android:orientation="horizontal"
-                android:padding="20dp"
-                android:id="@+id/llrestaurantOfTheDay">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="184dp"-->
+<!--                android:layout_marginLeft="15dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginRight="15dp"-->
+<!--                android:layout_marginBottom="35dp"-->
+<!--                android:background="@drawable/box"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:padding="20dp"-->
+<!--                android:id="@+id/llrestaurantOfTheDay">-->
 
-                    <ImageView
-                        android:id="@+id/imgRestoOftheDay"
-                        android:layout_width="220dp"
-                        android:layout_height="100dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/foodimg" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+<!--                    <ImageView-->
+<!--                        android:id="@+id/imgRestoOftheDay"-->
+<!--                        android:layout_width="220dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:layout_marginTop="15dp"-->
+<!--                        android:layout_marginRight="5dp"-->
+<!--                        android:layout_weight="1"-->
+<!--                        app:srcCompat="@drawable/foodimg" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:orientation="vertical">-->
 
-                            <TextView
-                                android:id="@+id/tvRestoName"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:fontFamily="@font/glacialindifference_regular"
-                                android:text="KFC"
-                                android:textColor="@color/black"
-                                android:textSize="25dp" />
+<!--                            <TextView-->
+<!--                                android:id="@+id/tvRestoName"-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:fontFamily="@font/glacialindifference_regular"-->
+<!--                                android:text="KFC"-->
+<!--                                android:textColor="@color/black"-->
+<!--                                android:textSize="25dp" />-->
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginLeft="5dp">
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                android:layout_marginLeft="5dp">-->
 
-                                <ImageView
-                                    android:id="@+id/icLocation"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    app:srcCompat="@drawable/locationicon" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/icLocation"-->
+<!--                                    android:layout_width="30dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    app:srcCompat="@drawable/locationicon" />-->
 
-                                <TextView
-                                    android:id="@+id/tvLocation"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:fontFamily="@font/glacialindifference_regular"
-                                    android:text="Jl. Ayam Goreng Krispy No. 12, AyamLand"
-                                    android:textColor="@color/black" />
-                            </LinearLayout>
+<!--                                <TextView-->
+<!--                                    android:id="@+id/tvLocation"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_weight="1"-->
+<!--                                    android:fontFamily="@font/glacialindifference_regular"-->
+<!--                                    android:text="Jl. Ayam Goreng Krispy No. 12, AyamLand"-->
+<!--                                    android:textColor="@color/black" />-->
+<!--                            </LinearLayout>-->
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:layout_marginLeft="5dp">
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                android:layout_marginLeft="5dp">-->
 
-                                <ImageView
-                                    android:id="@+id/icMoney"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    app:srcCompat="@drawable/moneyicon" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/icMoney"-->
+<!--                                    android:layout_width="30dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    app:srcCompat="@drawable/moneyicon" />-->
 
-                                <TextView
-                                    android:id="@+id/tvMoney"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="3dp"
-                                    android:layout_weight="1"
-                                    android:fontFamily="@font/glacialindifference_regular"
-                                    android:text="100k - 150k for two people"
-                                    android:textColor="@color/black"
-                                    android:textSize="15dp" />
-                            </LinearLayout>
+<!--                                <TextView-->
+<!--                                    android:id="@+id/tvMoney"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_margin="3dp"-->
+<!--                                    android:layout_weight="1"-->
+<!--                                    android:fontFamily="@font/glacialindifference_regular"-->
+<!--                                    android:text="100k - 150k for two people"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="15dp" />-->
+<!--                            </LinearLayout>-->
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:layout_marginLeft="5dp">
+<!--                            <LinearLayout-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:orientation="horizontal"-->
+<!--                                android:layout_marginLeft="5dp">-->
 
-                                <ImageView
-                                    android:id="@+id/icRating"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    app:srcCompat="@drawable/ratingicon" />
+<!--                                <ImageView-->
+<!--                                    android:id="@+id/icRating"-->
+<!--                                    android:layout_width="30dp"-->
+<!--                                    android:layout_height="30dp"-->
+<!--                                    app:srcCompat="@drawable/ratingicon" />-->
 
-                                <TextView
-                                    android:id="@+id/tvRating"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="3dp"
-                                    android:layout_weight="1"
-                                    android:fontFamily="@font/glacialindifference_regular"
-                                    android:text="4.5 out of 5"
-                                    android:textColor="@color/black"
-                                    android:textSize="15dp" />
-                            </LinearLayout>
-                        </LinearLayout>
-            </LinearLayout>
+<!--                                <TextView-->
+<!--                                    android:id="@+id/tvRating"-->
+<!--                                    android:layout_width="wrap_content"-->
+<!--                                    android:layout_height="wrap_content"-->
+<!--                                    android:layout_margin="3dp"-->
+<!--                                    android:layout_weight="1"-->
+<!--                                    android:fontFamily="@font/glacialindifference_regular"-->
+<!--                                    android:text="4.5 out of 5"-->
+<!--                                    android:textColor="@color/black"-->
+<!--                                    android:textSize="15dp" />-->
+<!--                            </LinearLayout>-->
+<!--                        </LinearLayout>-->
+<!--            </LinearLayout>-->
 
         </LinearLayout>
     </ScrollView>

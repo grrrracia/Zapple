@@ -59,6 +59,7 @@ public class EachRestaurantFragment extends Fragment{
     TextView tvRestoName, tvAddress, tvPriceRange, tvRating;
     ImageView icHeart;
     Boolean curr;
+//    ImageView btnBackFromResto;
 
     BaseApiService mApiService;
     private JSONObject jsonRESULTS;
@@ -74,6 +75,8 @@ public class EachRestaurantFragment extends Fragment{
 
         ContentActivity contentActivity = (ContentActivity) getActivity();
 //        contentActivity.pageTitle.setText("Restaurant Name");
+
+
 
         tvRestoName = view.findViewById(R.id.tvRestaurantName);
         tvAddress = view.findViewById(R.id.tvLocation);
