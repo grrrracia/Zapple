@@ -113,7 +113,6 @@ public class SearchActivity extends AppCompatActivity {
             callPostGenre.enqueue(new Callback<ArrayList<RestaurantModel>>() {
                 @Override
                 public void onResponse(Call<ArrayList<RestaurantModel>> call, Response<ArrayList<RestaurantModel>> response) {
-                    System.out.println(response.body() + "******************************8");
                     hasilPostGenre = response.body();
                 }
                 @Override

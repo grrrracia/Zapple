@@ -209,7 +209,7 @@ public class EditProfile extends Fragment {
             final Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             File file = savebitmap(bitmap);
 
-            System.out.println(file + "*******************************************8");
+
             MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 
             Call<ResponseBody> call = mApiService.changePP(accessToken, filePart);

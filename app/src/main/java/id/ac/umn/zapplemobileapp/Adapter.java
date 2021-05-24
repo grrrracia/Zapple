@@ -125,27 +125,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         //Set Intent go to detail
         holder.llRestaurantItem.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-
-//                sharedPrefFile = mContext.getPackageName();
-//                sharedpreferences = mContext.getSharedPreferences(sharedPrefFile, mContext.MODE_PRIVATE);
-//                SharedPreferences.Editor editor = sharedpreferences.edit();
-//                editor.putInt(RESTAURANTID_KEY, restaurantModels.get(position).getRestaurantID());
-//                editor.commit();
-//                Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_eachRestaurant);
-
                 Context context = mContext.getApplicationContext();
-                Intent intent = new Intent(mContext, ContentActivity.class);
+                Intent intent = new Intent(mContext, EachRestaurantActivity.class);
                 intent.putExtra("restoID", restaurantModels.get(position).getRestaurantID());
-                intent.putExtra("restoName", restaurantModels.get(position).getName());
-                intent.putExtra("restoAddress", restaurantModels.get(position).getAddress());
-                intent.putExtra("restoPrice", restaurantModels.get(position).getAvg_price());
-                intent.putExtra("latitude", restaurantModels.get(position).getLatitude());
-                intent.putExtra("longitude", restaurantModels.get(position).getLongitude());
-                intent.putExtra("restoRating", restaurantModels.get(position).getRating());
-                intent.putExtra("restoPhoneNumber", restaurantModels.get(position).getPhone_number());
-                intent.putExtra("restoImage", restaurantModels.get(position).getRestaurant_photos());
-                intent.putExtra("isFavourite", restaurantModels.get(position).getFavourite());
-
                 mContext.startActivity(intent);
             }
         });

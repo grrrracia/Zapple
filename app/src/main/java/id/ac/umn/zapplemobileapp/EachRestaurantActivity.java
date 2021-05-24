@@ -55,6 +55,11 @@ public class EachRestaurantActivity extends AppCompatActivity {
     ImageView icHeart;
     Boolean curr;
 
+    String[] image;
+    String name, address, phone;
+    Integer price, rating;
+    Boolean isFavourite;
+
     BaseApiService mApiService;
     private JSONObject jsonRESULTS;
 
@@ -62,70 +67,26 @@ public class EachRestaurantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_restaurant);
-
-        tvRestoName = findViewById(R.id.tvRestaurantName);
-        tvAddress = findViewById(R.id.tvLocation);
-        tvPriceRange = findViewById(R.id.tvMoney);
-        tvRating = findViewById(R.id.tvRating);
-        icHeart = findViewById(R.id.icFavourite);
-        seedData(view);
-        setupLayout();
-        if(curr){
-            icHeart.setImageResource(R.drawable.hearticon);
-        }else{
-            icHeart.setImageResource(R.drawable.emptyhearticon);
-        }
-
-        icHeart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!curr){
-                    setFavourite(getArguments().getInt("restoID"));
-                    icHeart.setImageResource(R.drawable.hearticon);
-                    curr = true;
-                }else{
-                    unsetFavourite(getArguments().getInt("restoID"));
-                    icHeart.setImageResource(R.drawable.emptyhearticon);
-                    curr = false;
-                }
-            }
-        });
-        int restoId = getArguments().getInt("restaurantId");
-
-        btnCallResto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+restoPhoneNumber));
-
-                if (ContextCompat.checkSelfPermission(contentActivity.getApplicationContext(), CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                    startActivity(callIntent);
-                } else {
-                    requestPermissions(new String[]{CALL_PHONE}, 1);
-                }
-//                startActivity(callIntent);
-            }
-        });
+        seedData();
 
         btnAddReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                Navigation.findNavController(v).navigate(R.id.action_eachRestaurant_to_addAReviewFrag);
 
-                Bundle reviewData = new Bundle();
-                reviewData.putInt("restaurantID", restoId);
-
-                Fragment addAReviewFrag = new AddAReviewFragment();
-                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
-
-                addAReviewFrag.setArguments(reviewData);
-
-                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
-                addReviewTransaction.addToBackStack(null);
-                addReviewTransaction.commit();
+//                Bundle reviewData = new Bundle();
+//                reviewData.putInt("restaurantID", restoId);
+//
+//                Fragment addAReviewFrag = new AddAReviewFragment();
+//                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
+//
+//                addAReviewFrag.setArguments(reviewData);
+//
+//                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
+//                addReviewTransaction.addToBackStack(null);
+//                addReviewTransaction.commit();
             }
         });
-        return view;
     }
 
     public void unsetFavourite(Integer restaurantID){
@@ -194,66 +155,96 @@ public class EachRestaurantActivity extends AppCompatActivity {
         });
     }
 
-    private void seedData(View view) {
-        mContext = getActivity();
-        curr = getArguments().getBoolean("isFavourite");
+    private void seedData() {
+        mContext = this;
+        restaurantID = getIntent().getExtras().getInt("restoID");
         sharedPrefFile = mContext.getPackageName();
         sharedpreferences = mContext.getSharedPreferences(sharedPrefFile, mContext.MODE_PRIVATE);
-        if(!sharedpreferences.contains("RestaurantID")){
-            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_eachRestaurant);
-        }else{
-            accessToken = sharedpreferences.getString(ACCESSTOKEN_KEY, "0");
-            restaurantID = sharedpreferences.getInt("RestaurantId", 0);
-        }
-
-        ImageSlider imageSlider = view.findViewById(R.id.imageSlider);
-
-        List<SlideModel> slideModels = new ArrayList<>();
-        for(String image: getArguments().getStringArray("restoImage")){
-            slideModels.add(new SlideModel(image, getArguments().getString("restaurantName")));
-        }
-        imageSlider.setImageList(slideModels, true);
-
-        btnOpenMenu = view.findViewById(R.id.btnOpenMenu);
-        btnCallResto = view.findViewById(R.id.btnCall);
-        btnAddReview = view.findViewById(R.id.btnAddReview);
-        btnOpenOnMaps = view.findViewById(R.id.btnOpenMaps);
-
-        btnAddReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Navigation.findNavController(v).navigate(R.id.action_eachRestaurant_to_addAReviewFrag);
-                Fragment aboutUsFragment = new AboutUsFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                Bundle reviewData = new Bundle();
-                reviewData.putInt("restaurantID", restaurantID);
-
-                Fragment addAReviewFrag = new AddAReviewFragment();
-                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
-
-                addAReviewFrag.setArguments(reviewData);
-
-                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
-                addReviewTransaction.addToBackStack(null);
-                addReviewTransaction.commit();
-            }
-        });
-
-        btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, MapsActivity.class);
-                intent.putExtra("latitude", getArguments().getString("latitude"));
-                intent.putExtra("longitude", getArguments().getString("longitude"));
-                startActivity(intent);
-            }
-        });
-
+        accessToken = sharedpreferences.getString(ACCESSTOKEN_KEY, "0");
         mApiService = UtilsApi.getAPIService();
+
+        tvRestoName = findViewById(R.id.tvRestaurantName);
+        tvAddress = findViewById(R.id.tvLocation);
+        tvPriceRange = findViewById(R.id.tvMoney);
+        tvRating = findViewById(R.id.tvRating);
+        icHeart = findViewById(R.id.icFavourite);
+
+        btnOpenMenu = findViewById(R.id.btnOpenMenu);
+        btnCallResto = findViewById(R.id.btnCall);
+        btnAddReview = findViewById(R.id.btnAddReview);
+        btnOpenOnMaps = findViewById(R.id.btnOpenMaps);
+
+        getData();
+
+
+        icHeart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!isFavourite){
+                    setFavourite(restaurantID);
+                    icHeart.setImageResource(R.drawable.hearticon);
+                    isFavourite = true;
+                }else{
+                    unsetFavourite(restaurantID);
+                    icHeart.setImageResource(R.drawable.emptyhearticon);
+                    isFavourite = false;
+                }
+            }
+        });
+
+        btnCallResto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                callIntent.setData(Uri.parse("tel:"+phone));
+
+                if (ContextCompat.checkSelfPermission(EachRestaurantActivity.this, CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(callIntent);
+                } else {
+                    requestPermissions(new String[]{CALL_PHONE}, 1);
+                }
+//                startActivity(callIntent);
+            }
+        });
+
+
+
+
+//        btnAddReview.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                Navigation.findNavController(v).navigate(R.id.action_eachRestaurant_to_addAReviewFrag);
+//                Fragment aboutUsFragment = new AboutUsFragment();
+//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//
+//                Bundle reviewData = new Bundle();
+//                reviewData.putInt("restaurantID", restaurantID);
+//
+//                Fragment addAReviewFrag = new AddAReviewFragment();
+//                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
+//
+//                addAReviewFrag.setArguments(reviewData);
+//
+//                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
+//                addReviewTransaction.addToBackStack(null);
+//                addReviewTransaction.commit();
+//            }
+//        });
+
+//        btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(mContext, MapsActivity.class);
+//                intent.putExtra("latitude", getArguments().getString("latitude"));
+//                intent.putExtra("longitude", getArguments().getString("longitude"));
+//                startActivity(intent);
+//            }
+//        });
+
+
     }
 
-    private void setupLayout() {
+    private void getData() {
 
         callPost = mApiService.getDetail(accessToken,restaurantID);
 
@@ -261,11 +252,36 @@ public class EachRestaurantActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ArrayList<RestaurantModel>> call, Response<ArrayList<RestaurantModel>> response) {
                 hasilPost = response.body();
-                System.out.println(hasilPost);
+                image = hasilPost.get(0).getRestaurant_photos();
+                name = hasilPost.get(0).getName();
+                address = hasilPost.get(0).getAddress();
+                phone = hasilPost.get(0).getPhone_number();
+                rating = hasilPost.get(0).getRating();
+                price = hasilPost.get(0).getAvg_price();
+                isFavourite = hasilPost.get(0).getFavourite();
+
+                tvRestoName.setText(name);
+                tvAddress.setText(address);
+                tvPriceRange.setText(price + " per pax");
+                tvRating.setText(rating + " out of 5");
+
+                if(isFavourite){
+                    icHeart.setImageResource(R.drawable.hearticon);
+                }else{
+                    icHeart.setImageResource(R.drawable.emptyhearticon);
+                }
+
+                ImageSlider imageSlider = findViewById(R.id.imageSlider);
+
+                List<SlideModel> slideModels = new ArrayList<>();
+                for(String photo: image){
+                    slideModels.add(new SlideModel(photo, name));
+                }
+                imageSlider.setImageList(slideModels, true);
             }
             @Override
             public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
-                Toast.makeText(getActivity(), "Gagal!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EachRestaurantActivity.this, "Gagal!", Toast.LENGTH_SHORT).show();
             }
         });
     }
