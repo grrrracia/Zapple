@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EachRestaurantActivity"
+    android:background="@color/backBeige">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                app:auto_cycle="true"
+                app:period="1000"
+                app:delay="0"
+                app:corner_radius="30"
+                app:placeholder="@drawable/placeholder"
+                app:error_image="@drawable/placeholder"
+                android:id="@+id/imageSlider"
+                android:layout_marginTop="45dp"
+                android:layout_marginBottom="25dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp">
+
+                <TextView
+                    android:id="@+id/tvRestaurantName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/glacialindifference_regular"
+                    android:text="Placeholder Resto Name"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/icFavourite"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/emptyhearticon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvRestaurantName"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="25dp"
+                android:paddingRight="25dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="15dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="3dp">
+
+                    <ImageView
+                        android:id="@+id/icLocation"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/locationicon" />
+
+                    <TextView
+                        android:id="@+id/tvLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Jl. Ayam Goreng Krispy No. 12, AyamLand"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/glacialindifference_regular"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="3dp">
+
+                    <ImageView
+                        android:id="@+id/icMoney"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/moneyicon" />
+
+                    <TextView
+                        android:id="@+id/tvMoney"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="100k - 150k for two people"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/glacialindifference_regular"
+                        android:textSize="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="3dp">
+
+                    <ImageView
+                        android:id="@+id/icRating"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        app:srcCompat="@drawable/ratingicon" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.5 out of 5"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/glacialindifference_regular"
+                        android:textSize="15dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/btnOpenMaps"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:src="@drawable/openmaps"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnAddReview"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/addreviewbutton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnOpenMaps"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnOpenMenu"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="24dp"
+                    android:src="@drawable/menubutton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnOpenMaps"
+                    app:layout_constraintVertical_bias="0.073" />
+
+                <ImageView
+                    android:id="@+id/btnCall"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/callbutton"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.513"
+                    app:layout_constraintStart_toEndOf="@+id/btnOpenMenu"
+                    app:layout_constraintTop_toBottomOf="@+id/btnAddReview"
+                    app:layout_constraintVertical_bias="0.073" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reviews"
+                android:fontFamily="@font/glacialindifference_regular"
+                android:textSize="20dp"
+                android:paddingLeft="25dp"
+                android:paddingTop="10dp"/>
+            <include
+                layout="@layout/item_restaurant_review"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

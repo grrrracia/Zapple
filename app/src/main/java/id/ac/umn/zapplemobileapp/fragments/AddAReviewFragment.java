@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import id.ac.umn.zapplemobileapp.R;
 
 public class AddAReviewFragment extends Fragment {
     ConstraintLayout clUploadImage;
-    TextView tvAddPicture;
+    TextView tvAddPicture,tvMyRating;
 
 //    private AddAReviewViewModel mViewModel;
 
@@ -34,10 +35,12 @@ public class AddAReviewFragment extends Fragment {
         ContentActivity contentActivity = (ContentActivity) getActivity();
         contentActivity.pageTitle.setText("Add a Review");
 
-//        Bundle restaurantData = new Bundle();
-//        Integer restoId = getArguments().getInt("restaurantId");
+        tvMyRating = view.findViewById(R.id.tvMyRating);
 
-//        System.out.println("RESTAURANT ID"+restoId);
+//        Bundle restaurantData = new Bundle();
+//        int restoId = getArguments().getInt("restaurantId");
+//        tvMyRating.setText(restoId);
+
 
         tvAddPicture = view.findViewById(R.id.tvAddPict);
 //        tvAddPicture.setText(restoId);

@@ -1,4 +1,10 @@
-package id.ac.umn.zapplemobileapp.fragments;
+package id.ac.umn.zapplemobileapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,18 +12,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
-
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,12 +28,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import id.ac.umn.zapplemobileapp.ContentActivity;
-import id.ac.umn.zapplemobileapp.MapsActivity;
-import id.ac.umn.zapplemobileapp.R;
-import id.ac.umn.zapplemobileapp.RestaurantModel;
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
 import id.ac.umn.zapplemobileapp.apihelper.UtilsApi;
+import id.ac.umn.zapplemobileapp.fragments.AboutUsFragment;
+import id.ac.umn.zapplemobileapp.fragments.AddAReviewFragment;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,7 +39,8 @@ import retrofit2.Response;
 
 import static android.Manifest.permission.CALL_PHONE;
 
-public class EachRestaurantFragment extends Fragment{
+public class EachRestaurantActivity extends AppCompatActivity {
+
     ImageView btnOpenMenu, btnCallResto, btnAddReview, btnOpenOnMaps;
     Intent intent;
     Context mContext;
@@ -63,23 +58,16 @@ public class EachRestaurantFragment extends Fragment{
     BaseApiService mApiService;
     private JSONObject jsonRESULTS;
 
-    public static EachRestaurantFragment newInstance() {
-        return new EachRestaurantFragment();
-    }
-
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_each_restaurant, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_each_restaurant);
 
-        ContentActivity contentActivity = (ContentActivity) getActivity();
-//        contentActivity.pageTitle.setText("Restaurant Name");
-
-        tvRestoName = view.findViewById(R.id.tvRestaurantName);
-        tvAddress = view.findViewById(R.id.tvLocation);
-        tvPriceRange = view.findViewById(R.id.tvMoney);
-        tvRating = view.findViewById(R.id.tvRating);
-        icHeart = view.findViewById(R.id.icFavourite);
+        tvRestoName = findViewById(R.id.tvRestaurantName);
+        tvAddress = findViewById(R.id.tvLocation);
+        tvPriceRange = findViewById(R.id.tvMoney);
+        tvRating = findViewById(R.id.tvRating);
+        icHeart = findViewById(R.id.icFavourite);
         seedData(view);
         setupLayout();
         if(curr){
@@ -87,19 +75,6 @@ public class EachRestaurantFragment extends Fragment{
         }else{
             icHeart.setImageResource(R.drawable.emptyhearticon);
         }
-
-//        Bundle restaurantData = new Bundle();
-        String restoName = getArguments().getString("restaurantName");
-        tvRestoName.setText(restoName);
-        String restoAddress = getArguments().getString("restaurantAddress");
-        tvAddress.setText(restoAddress);
-        int restoPrice = getArguments().getInt("restaurantPrice");
-        String priceString = "Average of Rp. "+restoPrice+" per Person";
-        tvPriceRange.setText(priceString);
-        int restoRating = getArguments().getInt("restaurantRating");
-        String ratingString = restoRating+"  out of 5";
-        tvRating.setText(ratingString);
-        String restoPhoneNumber = getArguments().getString("restaurantPhoneNumber");
 
         icHeart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,12 +91,6 @@ public class EachRestaurantFragment extends Fragment{
             }
         });
         int restoId = getArguments().getInt("restaurantId");
-
-
-        String pageHeader = restoName;
-        String[] result = pageHeader.split("\\s+");
-        pageHeader = result[0]+" "+result[1];
-        contentActivity.pageTitle.setText(pageHeader);
 
         btnCallResto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,15 +194,6 @@ public class EachRestaurantFragment extends Fragment{
         });
     }
 
-
-//    public interface IOnBackPressed {
-//        /**
-//         * If you return true the back press will not be taken into account, otherwise the activity will act naturally
-//         * @return true if your processing has priority if not false
-//         */
-//        boolean onBackPressed();
-//    }
-
     private void seedData(View view) {
         mContext = getActivity();
         curr = getArguments().getBoolean("isFavourite");
@@ -309,5 +269,6 @@ public class EachRestaurantFragment extends Fragment{
             }
         });
     }
+
 
 }
