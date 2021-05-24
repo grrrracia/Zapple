@@ -18,6 +18,7 @@
         android:paddingTop="10dp">
 
         <ImageView
+            android:id="@+id/ivPhoto"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/foodimg"

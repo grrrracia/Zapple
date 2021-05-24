@@ -5,6 +5,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -45,12 +47,15 @@ public class EachRestaurantActivity extends AppCompatActivity {
     Intent intent;
     Context mContext;
     Call<ArrayList<RestaurantModel>> callPost;
+    Call<ArrayList<ReviewModel>> callReview;
     private SharedPreferences sharedpreferences;
     private String sharedPrefFile;
     private String accessToken;
     private final String ACCESSTOKEN_KEY = "accessToken";
     private Integer restaurantID;
     ArrayList<RestaurantModel> hasilPost;
+    ArrayList<ReviewModel> hasilReview;
+    RecyclerView recyclerView;
     TextView tvRestoName, tvAddress, tvPriceRange, tvRating;
     ImageView icHeart;
     Boolean curr;
@@ -169,6 +174,9 @@ public class EachRestaurantActivity extends AppCompatActivity {
         tvRating = findViewById(R.id.tvRating);
         icHeart = findViewById(R.id.icFavourite);
 
+        recyclerView = findViewById(R.id.recyclerViewReview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         btnOpenMenu = findViewById(R.id.btnOpenMenu);
         btnCallResto = findViewById(R.id.btnCall);
         btnAddReview = findViewById(R.id.btnAddReview);
@@ -281,6 +289,20 @@ public class EachRestaurantActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
+                Toast.makeText(EachRestaurantActivity.this, "Gagal!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        callReview = mApiService.getReview(accessToken,restaurantID);
+
+        callReview.enqueue(new Callback<ArrayList<ReviewModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ReviewModel>> call, Response<ArrayList<ReviewModel>> response) {
+                hasilReview = response.body();
+                recyclerView.setAdapter(new ReviewAdapter(hasilReview, mContext, accessToken));
+            }
+            @Override
+            public void onFailure(Call<ArrayList<ReviewModel>> call, Throwable t) {
                 Toast.makeText(EachRestaurantActivity.this, "Gagal!", Toast.LENGTH_SHORT).show();
             }
         });

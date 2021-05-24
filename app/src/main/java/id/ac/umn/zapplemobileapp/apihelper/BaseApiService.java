@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import id.ac.umn.zapplemobileapp.FavouriteModel;
 import id.ac.umn.zapplemobileapp.RestaurantModel;
+import id.ac.umn.zapplemobileapp.ReviewModel;
 import id.ac.umn.zapplemobileapp.UserModel;
 import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
@@ -72,5 +73,6 @@ public interface    BaseApiService {
     @GET("user/favourites/")
     Call<ArrayList<RestaurantModel>> getUserFavourite(@Header("x-access-token") String accessToken);
 
-
+    @GET("review/restaurant/{restaurantID}")
+    Call<ArrayList<ReviewModel>> getReview(@Header("x-access-token") String accessToken, @Path("restaurantID") Integer restaurantID);
 }

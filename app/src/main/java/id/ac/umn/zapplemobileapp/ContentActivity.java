@@ -65,6 +65,8 @@ public class ContentActivity extends AppCompatActivity{
         btnAboutUs = findViewById(R.id.menuAboutUs);
         btnLogout = findViewById(R.id.menuLogout);
 
+
+
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
