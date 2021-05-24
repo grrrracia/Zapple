@@ -28,7 +28,8 @@
         android:roundIcon="@mipmap/iconzapple"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZappleMobileApp">
-        <activity android:name=".EachRestaurantActivity"></activity>
+        <activity android:name=".AddAReviewActivity"></activity>
+        <activity android:name=".EachRestaurantActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
