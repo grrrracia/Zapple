@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class AddAReviewActivity extends AppCompatActivity {
     ConstraintLayout clUploadImage;
-    ImageView imgReviewImage;
+    ImageView imgReviewImage, btnSaveReview;
     TextView tvAddPicture;
-    EditText etWriteReview;
+    EditText etWriteReview, etMyRating;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,8 @@ public class AddAReviewActivity extends AppCompatActivity {
 
         tvAddPicture = findViewById(R.id.tvAddPict);
         etWriteReview = findViewById(R.id.etWriteReview);
+        etMyRating = findViewById(R.id.etMyRating);
+        btnSaveReview = findViewById(R.id.btnSaveReview);
 
         clUploadImage = findViewById(R.id.reviewImage);
         clUploadImage.setOnClickListener(new View.OnClickListener(){
