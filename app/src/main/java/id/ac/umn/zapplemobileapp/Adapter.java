@@ -95,11 +95,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.rvRestoName.setText(restaurantModels.get(position).getName());
         holder.rvLocation.setText(restaurantModels.get(position).getAddress());
         holder.rvMoney.setText(restaurantModels.get(position).getAvg_price().toString());
-        Integer rating;
+        Double rating;
         if(restaurantModels.get(position).getRating()!=null){
             rating = restaurantModels.get(position).getRating();
         }else{
-            rating = 0;
+            rating = 0.0;
         }
         holder.rvRating.setText(rating + " out of 5");
 

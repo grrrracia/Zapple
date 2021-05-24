@@ -33,8 +33,8 @@ public interface    BaseApiService {
     @Multipart
     @POST("review/data")
     Call<ResponseBody> reviewRequest(
+            @Header("x-access-token") String accessToken,
             @Part("restaurantID") Integer restaurantID,
-            @Part("userID") Integer userID,
             @Part("review") String review,
             @Part("score") Integer score,
             @Part MultipartBody.Part photo);
@@ -75,4 +75,5 @@ public interface    BaseApiService {
 
     @GET("review/restaurant/{restaurantID}")
     Call<ArrayList<ReviewModel>> getReview(@Header("x-access-token") String accessToken, @Path("restaurantID") Integer restaurantID);
+
 }

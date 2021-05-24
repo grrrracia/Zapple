@@ -58,11 +58,11 @@ public class EachRestaurantActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     TextView tvRestoName, tvAddress, tvPriceRange, tvRating;
     ImageView icHeart;
-    Boolean curr;
 
     String[] image;
     String name, address, phone;
-    Integer price, rating;
+    Integer price;
+    Double rating;
     Boolean isFavourite;
 
     BaseApiService mApiService;
@@ -73,25 +73,6 @@ public class EachRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_restaurant);
         seedData();
-
-        btnAddReview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Navigation.findNavController(v).navigate(R.id.action_eachRestaurant_to_addAReviewFrag);
-
-//                Bundle reviewData = new Bundle();
-//                reviewData.putInt("restaurantID", restoId);
-//
-//                Fragment addAReviewFrag = new AddAReviewFragment();
-//                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
-//
-//                addAReviewFrag.setArguments(reviewData);
-//
-//                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
-//                addReviewTransaction.addToBackStack(null);
-//                addReviewTransaction.commit();
-            }
-        });
     }
 
     public void unsetFavourite(Integer restaurantID){
@@ -215,30 +196,16 @@ public class EachRestaurantActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-//        btnAddReview.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Navigation.findNavController(v).navigate(R.id.action_eachRestaurant_to_addAReviewFrag);
-//                Fragment aboutUsFragment = new AboutUsFragment();
-//                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        btnAddReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, AddAReviewActivity.class);
+                System.out.println(intent);
+                intent.putExtra("restoID", restaurantID);
+                startActivity(intent);
+            }
+        });
 //
-//                Bundle reviewData = new Bundle();
-//                reviewData.putInt("restaurantID", restaurantID);
-//
-//                Fragment addAReviewFrag = new AddAReviewFragment();
-//                FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
-//
-//                addAReviewFrag.setArguments(reviewData);
-//
-//                addReviewTransaction.replace(R.id.nav_host_fragment_container, addAReviewFrag);
-//                addReviewTransaction.addToBackStack(null);
-//                addReviewTransaction.commit();
-//            }
-//        });
-
 //        btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
 //            @Override
 //            public void onClick(View v) {
@@ -264,7 +231,12 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 name = hasilPost.get(0).getName();
                 address = hasilPost.get(0).getAddress();
                 phone = hasilPost.get(0).getPhone_number();
-                rating = hasilPost.get(0).getRating();
+                if(hasilPost.get(0).getRating() == null){
+                    rating = 0.0;
+                }else{
+                    rating = hasilPost.get(0).getRating();
+                }
+
                 price = hasilPost.get(0).getAvg_price();
                 isFavourite = hasilPost.get(0).getFavourite();
 
