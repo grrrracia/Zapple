@@ -26,6 +26,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/btnChangePicture"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:background="#8C003049"
