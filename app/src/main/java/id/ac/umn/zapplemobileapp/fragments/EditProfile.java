@@ -34,6 +34,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.JsonObject;
@@ -70,6 +71,9 @@ public class EditProfile extends Fragment {
 
     //    private EditProfileViewModel mViewModel;
     ConstraintLayout CLeditProPicture;
+
+    TextView btnChangeProfilePicture;
+
     EditText etFullName, etUsername, etEmail, etPassword, etConfirmPassword;
     ImageView btnSaveChange;
     Context mContext;
@@ -101,6 +105,20 @@ public class EditProfile extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
         seedData(view);
         setup();
+
+
+        CLeditProPicture = view.findViewById(R.id.editProPicture);
+        CLeditProPicture.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE_SECURE));
+                if(takePictureIntent.resolveActivity(mContext.getPackageManager()) != null){
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                }
+                System.out.println("CHANGE PICTURE");
+            }
+        });
+
         return view;
     }
 
@@ -108,6 +126,7 @@ public class EditProfile extends Fragment {
 
     private void seedData(View view) {
         CLeditProPicture = view.findViewById(R.id.editProPicture);
+
         etEmail = view.findViewById(R.id.etEditEmail);
         etFullName = view.findViewById(R.id.etEditFullName);
         btnSaveChange = view.findViewById(R.id.btnSaveChanges);
@@ -120,7 +139,7 @@ public class EditProfile extends Fragment {
         CLeditProPicture.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE));
+                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE_SECURE));
                 if(takePictureIntent.resolveActivity(mContext.getPackageManager()) != null){
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
