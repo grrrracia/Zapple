@@ -51,6 +51,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import id.ac.umn.zapplemobileapp.ContentActivity;
+import id.ac.umn.zapplemobileapp.EachRestaurantActivity;
 import id.ac.umn.zapplemobileapp.R;
 import id.ac.umn.zapplemobileapp.UserModel;
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
@@ -63,6 +64,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static android.Manifest.permission.CALL_PHONE;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import static androidx.core.content.ContextCompat.checkSelfPermission;
@@ -111,7 +113,7 @@ public class EditProfile extends Fragment {
         CLeditProPicture.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE_SECURE));
+                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE));
                 if(takePictureIntent.resolveActivity(mContext.getPackageManager()) != null){
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
@@ -139,10 +141,11 @@ public class EditProfile extends Fragment {
         CLeditProPicture.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE_SECURE));
+                Intent takePictureIntent = new Intent((MediaStore.ACTION_IMAGE_CAPTURE));
                 if(takePictureIntent.resolveActivity(mContext.getPackageManager()) != null){
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
                 }
+
             }
         });
 
@@ -228,6 +231,7 @@ public class EditProfile extends Fragment {
             final Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             File file = savebitmap(bitmap);
 
+            System.out.println(file+"******************************************************");
 
             MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 
