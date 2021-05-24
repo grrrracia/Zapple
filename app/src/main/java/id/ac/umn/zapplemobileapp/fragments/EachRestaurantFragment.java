@@ -32,12 +32,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import id.ac.umn.zapplemobileapp.Adapter;
 import id.ac.umn.zapplemobileapp.ContentActivity;
 import id.ac.umn.zapplemobileapp.MapsActivity;
 import id.ac.umn.zapplemobileapp.R;
 import id.ac.umn.zapplemobileapp.RestaurantModel;
-import id.ac.umn.zapplemobileapp.SearchActivity;
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
 import id.ac.umn.zapplemobileapp.apihelper.UtilsApi;
 import okhttp3.ResponseBody;
@@ -150,7 +148,7 @@ public class EachRestaurantFragment extends Fragment{
                 Bundle reviewData = new Bundle();
                 reviewData.putInt("restaurantID", restaurantID);
 
-                Fragment addAReviewFrag = new addAReviewFrag();
+                Fragment addAReviewFrag = new AddAReviewFragment();
                 FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
 
                 addAReviewFrag.setArguments(reviewData);
@@ -273,7 +271,7 @@ public class EachRestaurantFragment extends Fragment{
                 Bundle reviewData = new Bundle();
                 reviewData.putInt("restaurantID", restaurantID);
 
-                Fragment addAReviewFrag = new addAReviewFrag();
+                Fragment addAReviewFrag = new AddAReviewFragment();
                 FragmentTransaction addReviewTransaction = getFragmentManager().beginTransaction();
 
                 addAReviewFrag.setArguments(reviewData);

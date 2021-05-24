@@ -1,7 +1,6 @@
 package id.ac.umn.zapplemobileapp.fragments;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
@@ -12,20 +11,19 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import id.ac.umn.zapplemobileapp.ContentActivity;
 import id.ac.umn.zapplemobileapp.R;
 
-public class addAReviewFrag extends Fragment {
+public class AddAReviewFragment extends Fragment {
     ConstraintLayout clUploadImage;
     TextView tvAddPicture;
 
 //    private AddAReviewViewModel mViewModel;
 
-    public static addAReviewFrag newInstance() {
-        return new addAReviewFrag();
+    public static AddAReviewFragment newInstance() {
+        return new AddAReviewFragment();
     }
 
     @Override

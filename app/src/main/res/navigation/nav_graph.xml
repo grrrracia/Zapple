@@ -70,7 +70,7 @@
         tools:layout="@layout/fragment_edit_profile" />
     <fragment
         android:id="@+id/addAReviewFrag"
-        android:name="id.ac.umn.zapplemobileapp.fragments.addAReviewFrag"
+        android:name="id.ac.umn.zapplemobileapp.fragments.AddAReviewFragment"
         android:label="fragment_add_a_review"
         tools:layout="@layout/fragment_add_a_review" />
 </navigation>
