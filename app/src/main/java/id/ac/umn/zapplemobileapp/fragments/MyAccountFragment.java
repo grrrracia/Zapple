@@ -13,6 +13,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +31,11 @@ import java.util.ArrayList;
 
 import id.ac.umn.zapplemobileapp.Adapter;
 import id.ac.umn.zapplemobileapp.ContentActivity;
+import id.ac.umn.zapplemobileapp.EachRestaurantActivity;
 import id.ac.umn.zapplemobileapp.R;
 import id.ac.umn.zapplemobileapp.RestaurantModel;
+import id.ac.umn.zapplemobileapp.ReviewAdapter;
+import id.ac.umn.zapplemobileapp.ReviewModel;
 import id.ac.umn.zapplemobileapp.SearchActivity;
 import id.ac.umn.zapplemobileapp.UserModel;
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
@@ -55,7 +60,11 @@ public class MyAccountFragment extends Fragment{
     private final String ACCESSTOKEN_KEY = "accessToken";
 
     Call<ArrayList<UserModel>> callPost;
+    Call<ArrayList<ReviewModel>> callReview;
     ArrayList<UserModel> hasilPost;
+    ArrayList<ReviewModel> hasilReview;
+
+    RecyclerView recyclerView;
 
     public static MyAccountFragment newInstance() {
         return new MyAccountFragment();
@@ -87,6 +96,8 @@ public class MyAccountFragment extends Fragment{
 
     private void seedData(View view) {
         mContext = getActivity();
+        recyclerView = view.findViewById(R.id.recyclerViewReview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         tvName = view.findViewById(R.id.tvFullName);
         ivProfile = view.findViewById(R.id.ProfilePicture);
         mApiService = UtilsApi.getAPIService();
@@ -121,6 +132,20 @@ public class MyAccountFragment extends Fragment{
             @Override
             public void onFailure(Call<ArrayList<UserModel>> call, Throwable t) {
                 Toast.makeText(mContext, "Gagal!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        callReview = mApiService.getReview(accessToken);
+
+        callReview.enqueue(new Callback<ArrayList<ReviewModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<ReviewModel>> call, Response<ArrayList<ReviewModel>> response) {
+                hasilReview = response.body();
+                recyclerView.setAdapter(new ReviewAdapter(hasilReview, mContext, accessToken));
+            }
+            @Override
+            public void onFailure(Call<ArrayList<ReviewModel>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Gagal!", Toast.LENGTH_SHORT).show();
             }
         });
     }

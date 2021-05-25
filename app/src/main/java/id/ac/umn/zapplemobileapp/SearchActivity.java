@@ -34,11 +34,10 @@ public class SearchActivity extends AppCompatActivity {
     BaseApiService mApiService;
     String search;
     Integer genre;
-    Call<ArrayList<RestaurantModel>> callPost, callPostGenre;
+    Call<ArrayList<RestaurantModel>> callPost;
     Intent intent;
-    ArrayList<RestaurantModel> hasilPost, hasilPostGenre, hasil;
+    ArrayList<RestaurantModel> hasilPost;
     ImageView ivSearch;
-    ImageView btnSearch;
 
     private SharedPreferences sharedpreferences;
     private String sharedPrefFile;
@@ -78,64 +77,25 @@ public class SearchActivity extends AppCompatActivity {
                 setupLayout();
             }
         });
-//        etSearchBar.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//                search = etSearchBar.getText().toString();
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//                recyclerView.removeAllViewsInLayout();
-//                recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-//                setupLayout();
-//            }
-//        });
+
     }
 
     private void setupLayout() {
         intent = getIntent();
 
         if(intent.hasExtra("genre")){
-            hasil = new ArrayList<RestaurantModel>();
-            hasilPostGenre = new ArrayList<RestaurantModel>();
+
             genre = intent.getExtras().getInt("genre");
             if(search.equals("")){
-                callPost = mApiService.getList(accessToken);
-                callPostGenre = mApiService.getList(accessToken, genre);
+                callPost = mApiService.getList(accessToken, genre);
             }else{
-                callPost = mApiService.getList(accessToken, search);
-                callPostGenre = mApiService.getList(accessToken, genre);
+                callPost = mApiService.getList(accessToken, genre, search);
             }
-            callPostGenre.enqueue(new Callback<ArrayList<RestaurantModel>>() {
-                @Override
-                public void onResponse(Call<ArrayList<RestaurantModel>> call, Response<ArrayList<RestaurantModel>> response) {
-                    hasilPostGenre = response.body();
-                }
-                @Override
-                public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
-                    Toast.makeText(SearchActivity.this, "Gagal!", Toast.LENGTH_SHORT).show();
-                }
-            });
             callPost.enqueue(new Callback<ArrayList<RestaurantModel>>() {
                 @Override
                 public void onResponse(Call<ArrayList<RestaurantModel>> call, Response<ArrayList<RestaurantModel>> response) {
                     hasilPost = response.body();
-                    if(!hasilPost.isEmpty()){
-                        for(RestaurantModel restoGenre: hasilPostGenre){
-                            for(RestaurantModel resto: hasilPost){
-                                if(restoGenre.getRestaurantID() == resto.getRestaurantID()){
-                                    hasil.add(resto);
-                                }
-                            }
-                        }
-                    }else{
-                        hasil = hasilPostGenre;
-                    }
-                    recyclerView.setAdapter(new Adapter(hasil, mContext, accessToken));
+                    recyclerView.setAdapter(new Adapter(hasilPost, mContext, accessToken));
                 }
                 @Override
                 public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {

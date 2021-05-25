@@ -221,7 +221,8 @@ public class EachRestaurantActivity extends AppCompatActivity {
         btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Uri gmmIntentUri = Uri.parse("google.navigation:cbll"+ latitude + "," + longitude);
+                String geoUriString="geo:"+latitude+","+longitude+"?q="+latitude+","+longitude;
+                Uri gmmIntentUri = Uri.parse(geoUriString);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 if (mapIntent.resolveActivity(getPackageManager()) != null) {
@@ -229,8 +230,6 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 }
             }
         });
-
-        
     }
 
     private void getData() {
@@ -261,12 +260,6 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 tvPriceRange.setText(price + " per pax");
                 tvRating.setText(rating + " out of 5");
 
-                String pageHeader = name;
-                String[] result = pageHeader.split("\\s+");
-                pageHeader = result[0]+" "+result[1];
-
-                headerRestoName.setText(pageHeader);
-
                 if(isFavourite){
                     icHeart.setImageResource(R.drawable.hearticon);
                 }else{
@@ -280,6 +273,12 @@ public class EachRestaurantActivity extends AppCompatActivity {
                     slideModels.add(new SlideModel(photo, name));
                 }
                 imageSlider.setImageList(slideModels, true);
+
+                String pageHeader = name;
+                String[] result = pageHeader.split("\\s+");
+                pageHeader = result[0]+" "+result[1];
+
+                headerRestoName.setText(pageHeader);
             }
             @Override
             public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
