@@ -62,7 +62,7 @@ public class EachRestaurantActivity extends AppCompatActivity {
     TextView headerRestoName;
 
     String[] image;
-    String name, address, phone;
+    String name, address, phone, latitude, longitude;
     Integer price;
     Double rating;
     Boolean isFavourite;
@@ -217,18 +217,19 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//
-//        btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(mContext, MapsActivity.class);
-//                intent.putExtra("latitude", getArguments().getString("latitude"));
-//                intent.putExtra("longitude", getArguments().getString("longitude"));
-//                startActivity(intent);
-//            }
-//        });
 
-
+        btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String geoUriString="geo:"+latitude+","+longitude+"?q="+latitude+","+longitude;
+                Uri gmmIntentUri = Uri.parse(geoUriString);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                }
+            }
+        });
     }
 
     private void getData() {
@@ -243,6 +244,8 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 name = hasilPost.get(0).getName();
                 address = hasilPost.get(0).getAddress();
                 phone = hasilPost.get(0).getPhone_number();
+                latitude = hasilPost.get(0).getLatitude();
+                longitude = hasilPost.get(0).getLongitude();
                 if(hasilPost.get(0).getRating() == null){
                     rating = 0.0;
                 }else{
@@ -257,12 +260,6 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 tvPriceRange.setText(price + " per pax");
                 tvRating.setText(rating + " out of 5");
 
-                String pageHeader = name;
-                String[] result = pageHeader.split("\\s+");
-                pageHeader = result[0]+" "+result[1];
-
-                headerRestoName.setText(pageHeader);
-
                 if(isFavourite){
                     icHeart.setImageResource(R.drawable.hearticon);
                 }else{
@@ -276,6 +273,12 @@ public class EachRestaurantActivity extends AppCompatActivity {
                     slideModels.add(new SlideModel(photo, name));
                 }
                 imageSlider.setImageList(slideModels, true);
+
+                String pageHeader = name;
+                String[] result = pageHeader.split("\\s+");
+                pageHeader = result[0]+" "+result[1];
+
+                headerRestoName.setText(pageHeader);
             }
             @Override
             public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {

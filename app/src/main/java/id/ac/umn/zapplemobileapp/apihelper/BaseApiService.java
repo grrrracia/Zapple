@@ -67,6 +67,9 @@ public interface    BaseApiService {
     @GET("restaurant/category/{genre}")
     Call<ArrayList<RestaurantModel>> getList(@Header("x-access-token") String accessToken, @Path("genre") Integer genre);
 
+    @GET("restaurant/{genre}/{search}")
+    Call<ArrayList<RestaurantModel>> getList(@Header("x-access-token") String accessToken, @Path("genre") Integer genre, @Path("search") String search);
+
     @GET("restaurant/id/{restaurantID}")
     Call<ArrayList<RestaurantModel>> getDetail(@Header("x-access-token") String accessToken, @Path("restaurantID") Integer restaurantID);
 
@@ -76,4 +79,6 @@ public interface    BaseApiService {
     @GET("review/restaurant/{restaurantID}")
     Call<ArrayList<ReviewModel>> getReview(@Header("x-access-token") String accessToken, @Path("restaurantID") Integer restaurantID);
 
+    @GET("review/user")
+    Call<ArrayList<ReviewModel>> getReview(@Header("x-access-token") String accessToken);
 }
