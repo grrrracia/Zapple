@@ -7,11 +7,13 @@
     tools:context=".fragments.MyAccountFragment"
     android:background="@color/backBeige">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_gravity="center"
             android:id="@+id/constraintLayout"
             android:layout_width="250dp"
             android:layout_height="250dp"
@@ -56,6 +58,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvFullName"
                 app:layout_constraintVertical_bias="0.234" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -63,31 +66,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
             android:fontFamily="@font/glacialindifference_regular"
             android:text="My Reviews"
             android:textColor="@color/black"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.153"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+            android:textSize="15dp" />
 
-        <ScrollView
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReview"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMyReviews"
-            app:layout_constraintVertical_bias="0.0">
+            android:layout_marginTop="5dp"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewReview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"/>
-        </ScrollView>
+        <!--        <ScrollView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tvMyReviews"-->
+        <!--            app:layout_constraintVertical_bias="0.0">-->
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        </ScrollView>-->
+
+    </LinearLayout>
 
 </FrameLayout>
