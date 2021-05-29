@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -114,6 +115,7 @@ public class SearchActivity extends AppCompatActivity {
                     hasilPost = response.body();
                     System.out.println("hasil" + hasilPost);
                     recyclerView.setAdapter(new Adapter(hasilPost, mContext, accessToken));
+
                 }
                 @Override
                 public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {

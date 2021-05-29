@@ -8,6 +8,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,6 +45,9 @@ import static android.Manifest.permission.CALL_PHONE;
 public class EachRestaurantActivity extends AppCompatActivity {
 
     ImageView btnOpenMenu, btnCallResto, btnAddReview, btnOpenOnMaps;
+
+    ProgressDialog loading;
+
     Intent intent;
     Context mContext;
     Call<ArrayList<RestaurantModel>> callPost;
@@ -75,7 +79,7 @@ public class EachRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_each_restaurant);
         seedData();
-
+        loading = ProgressDialog.show(mContext, null, "Please Wait...", true, false);
         btnBackFromResto = findViewById(R.id.btnBackFromResto);
         btnBackFromResto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,10 +283,13 @@ public class EachRestaurantActivity extends AppCompatActivity {
                 pageHeader = result[0]+" "+result[1];
 
                 headerRestoName.setText(pageHeader);
+                loading.dismiss();
             }
             @Override
             public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
+                loading.dismiss();
                 Toast.makeText(EachRestaurantActivity.this, "Gagal!", Toast.LENGTH_SHORT).show();
+
             }
         });
 

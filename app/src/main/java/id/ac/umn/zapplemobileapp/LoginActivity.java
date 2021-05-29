@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         ivLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                loading = ProgressDialog.show(mContext, null, "Please Wait...", true, false);
                 requestLogin();
             }
         });
