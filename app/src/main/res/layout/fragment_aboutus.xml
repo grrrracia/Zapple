@@ -34,14 +34,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:id="@+id/imageView4"
             android:layout_width="303dp"
             android:layout_height="118dp"
-            android:src="@drawable/box"
+            android:background="@drawable/box"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            android:padding="15dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alexander Moya Hin"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stephen Tjoang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gracia Angelica Nadaputri"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gregorius Hariyanto"/>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/textView2"

@@ -174,7 +174,7 @@ public class EachRestaurantActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewReview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        btnOpenMenu = findViewById(R.id.btnOpenMenu);
+//        btnOpenMenu = findViewById(R.id.btnOpenMenu);
         btnCallResto = findViewById(R.id.btnCall);
         btnAddReview = findViewById(R.id.btnAddReview);
         btnOpenOnMaps = findViewById(R.id.btnOpenMaps);
@@ -225,7 +225,7 @@ public class EachRestaurantActivity extends AppCompatActivity {
         btnOpenOnMaps.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                String geoUriString="geo:"+latitude+","+longitude+"?q="+latitude+","+longitude;
+                String geoUriString="geo:"+latitude+","+longitude+"?q="+latitude+","+longitude+"&z=15";
                 Uri gmmIntentUri = Uri.parse(geoUriString);
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");

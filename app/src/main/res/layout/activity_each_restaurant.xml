@@ -64,7 +64,7 @@
                 app:placeholder="@drawable/placeholder"
                 app:error_image="@drawable/placeholder"
                 android:id="@+id/imageSlider"
-                android:layout_marginTop="45dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginBottom="25dp"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,26 +202,25 @@
                     app:layout_constraintStart_toEndOf="@+id/btnOpenMaps"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/btnOpenMenu"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="24dp"
-                    android:src="@drawable/menubutton"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnOpenMaps"
-                    app:layout_constraintVertical_bias="0.073" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/btnOpenMenu"-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:layout_marginStart="24dp"-->
+<!--                    android:src="@drawable/menubutton"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/btnOpenMaps"-->
+<!--                    app:layout_constraintVertical_bias="0.073" />-->
 
                 <ImageView
                     android:id="@+id/btnCall"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/callbutton"
+                    android:layout_width="315dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/callbuttonlong"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.513"
-                    app:layout_constraintStart_toEndOf="@+id/btnOpenMenu"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnAddReview"
                     app:layout_constraintVertical_bias="0.073" />
             </androidx.constraintlayout.widget.ConstraintLayout>
