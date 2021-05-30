@@ -16,4 +16,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_settings">SettingsActivity</string>
     <string name="title_activity_maps">Map</string>
+    <string name="title_activity_maps_from_home">Map</string>
+
+    <string name="google_maps_api">AIzaSyBIpzzbnMwli0EI2DyuPJbG9Fmy4d502i4</string>
 </resources>

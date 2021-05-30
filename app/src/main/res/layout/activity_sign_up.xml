@@ -32,7 +32,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.235"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/etName"
@@ -44,7 +45,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+            app:layout_constraintTop_toBottomOf="@+id/tvName"
+            android:textColor="@color/black"/>
 
 
         <TextView
@@ -56,7 +58,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.252"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etName" />
+            app:layout_constraintTop_toBottomOf="@+id/etName"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/etPassword"
@@ -69,7 +72,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPassword"
             android:textSize="20dp"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvEmail"
@@ -80,7 +84,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.234"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/etEmail"
@@ -93,7 +98,8 @@
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/btnSignup"
@@ -113,7 +119,8 @@
             android:text="If you already have an account,"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
+            app:layout_constraintTop_toBottomOf="@+id/btnSignup"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/tvLogin"
@@ -122,6 +129,7 @@
             android:linksClickable="true"
             android:text=" here"
             android:textStyle="bold"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvSignuPart1"
             app:layout_constraintTop_toBottomOf="@+id/tvIfNeedSignUp"
@@ -137,7 +145,8 @@
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvIfNeedSignUp"
-            app:layout_constraintVertical_bias="0"/>
+            app:layout_constraintVertical_bias="0"
+            android:textColor="@color/black"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

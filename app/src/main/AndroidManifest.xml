@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="id.ac.umn.zapplemobileapp">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -13,10 +14,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <queries>
         <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
         </intent>
     </queries>
 
@@ -26,7 +26,6 @@
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
@@ -42,13 +41,24 @@
         android:roundIcon="@mipmap/iconzapple"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZappleMobileApp">
+
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+        <activity
+            android:name=".MapsActivityFromHome"
+            android:label="@string/title_activity_maps_from_home"></activity>
         <activity android:name=".EachRestaurantActivity" />
         <activity android:name=".AddAReviewActivity" />
-
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />

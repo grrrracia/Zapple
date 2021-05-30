@@ -27,6 +27,8 @@ import android.widget.TextView;
 
 import id.ac.umn.zapplemobileapp.ContentActivity;
 import id.ac.umn.zapplemobileapp.MainActivity;
+import id.ac.umn.zapplemobileapp.MapsActivity;
+import id.ac.umn.zapplemobileapp.MapsActivityFromHome;
 import id.ac.umn.zapplemobileapp.R;
 import id.ac.umn.zapplemobileapp.SearchActivity;
 
@@ -74,7 +76,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     ActivityCompat.requestPermissions(contentActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
                 } else {
                     Log.d(TAG, "getLocation: permissions granted");
+                    Intent openMapsFromHome = new Intent(getActivity(), MapsActivityFromHome.class);
+                    startActivity(openMapsFromHome);
                 }
+                Intent openMapsFromHome = new Intent(getActivity(), MapsActivityFromHome.class);
+                startActivity(openMapsFromHome);
             }
         });
 
