@@ -57,7 +57,7 @@
 
         <activity
             android:name=".MapsActivityFromHome"
-            android:label="@string/title_activity_maps_from_home"></activity>
+            android:label="@string/title_activity_maps_from_home"/>
         <activity android:name=".EachRestaurantActivity" />
         <activity android:name=".AddAReviewActivity" />
         <activity
