@@ -17,6 +17,15 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
+        <ImageView
+            android:id="@+id/btnBackFromSearch"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_backarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/etSearchBar"
             android:layout_width="294dp"
@@ -24,12 +33,13 @@
             android:layout_gravity="center_vertical"
             android:background="#80FFFFFF"
             android:fontFamily="@font/glacialindifference_regular"
-            android:padding="20dp"
             android:hint="Search..."
+            android:padding="20dp"
             android:textColor="#66000000"
             android:textSize="25dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ic_searchicon"
+            app:layout_constraintStart_toEndOf="@+id/btnBackFromSearch"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView

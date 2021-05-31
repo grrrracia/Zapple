@@ -38,7 +38,7 @@ public class SearchActivity extends AppCompatActivity {
     Call<ArrayList<RestaurantModel>> callPost;
     Intent intent;
     ArrayList<RestaurantModel> hasilPost;
-    ImageView ivSearch;
+    ImageView ivSearch, btnBackFromSearch;
 
     private SharedPreferences sharedpreferences;
     private String sharedPrefFile;
@@ -63,6 +63,8 @@ public class SearchActivity extends AppCompatActivity {
         ivSearch = findViewById(R.id.ic_searchicon);
         search = etSearchBar.getText().toString();
 
+        btnBackFromSearch = findViewById(R.id.btnBackFromSearch);
+
         sharedPrefFile = mContext.getPackageName();
         sharedpreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
         accessToken = sharedpreferences.getString(ACCESSTOKEN_KEY, "0");
@@ -79,7 +81,15 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+        btnBackFromSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
+    
 
     private void setupLayout() {
         intent = getIntent();

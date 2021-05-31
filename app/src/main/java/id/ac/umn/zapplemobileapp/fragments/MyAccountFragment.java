@@ -76,7 +76,7 @@ public class MyAccountFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_my_account, container, false);
 
         ContentActivity contentActivity = (ContentActivity) getActivity();
-        contentActivity.pageTitle.setText("Edit Profile");
+        contentActivity.pageTitle.setText("My Account");
         seedData(view);
         setup();
         btnEditProfile = view.findViewById(R.id.tvEditProfile);
