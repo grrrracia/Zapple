@@ -55,6 +55,15 @@ public class ContentActivity extends AppCompatActivity{
         seedIntent();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(!sharedpreferences.contains("accessToken")){
+            intent = new Intent(mContext, LandingPageActivity.class);
+            startActivity(intent);
+        }
+    }
+
     private void seedData() {
         mContext = this;
         toolbar = findViewById(R.id.myToolbar);
@@ -177,7 +186,7 @@ public class ContentActivity extends AppCompatActivity{
         navigationView.setItemIconSize(150);
         View headerView = navigationView.getHeaderView(0);
         TextView helloName = (TextView) headerView.findViewById(R.id.tvHeaderHelloText);
-        String helloUserString = "Hello "+"variablenamauser"+" !";
+        String helloUserString = "Hello "+ sharedpreferences.getString("name", "Zappler") + " !";
         helloName.setText(helloUserString);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(

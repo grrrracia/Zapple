@@ -145,7 +145,6 @@ public class AddAReviewActivity extends AppCompatActivity {
         if (file.exists()) {
             file.delete();
             file = new File(extStorageDirectory, "temp.png");
-
         }
 
         try {
