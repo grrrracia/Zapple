@@ -82,6 +82,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/tvWriteReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -95,6 +96,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/reviewImage" />
 
             <EditText
+                android:textColor="@color/black"
                 android:id="@+id/etWriteReview"
                 android:inputType="textMultiLine"
                 android:layout_width="270dp"
@@ -110,6 +112,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvWriteReview"/>
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/tvRateRestaurant"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,6 +143,7 @@
                     android:src="@drawable/ratingicon" />
 
                 <EditText
+                    android:textColor="@color/black"
                     android:id="@+id/etMyRating"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
