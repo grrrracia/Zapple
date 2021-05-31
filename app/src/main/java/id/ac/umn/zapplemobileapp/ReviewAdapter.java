@@ -76,7 +76,7 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewAdapter.MyViewHold
 
         //Set Data to Layout
         holder.ivPhoto.setImageBitmap(bitmap);
-        holder.rvUser.setText(reviewModels.get(position).getName());
+        holder.rvUser.setText("Reviewed by " + reviewModels.get(position).getName());
         holder.rvReview.setText(reviewModels.get(position).getReview());
         holder.rvRating.setText(reviewModels.get(position).getScore().toString() + " Out of 5");
     }
