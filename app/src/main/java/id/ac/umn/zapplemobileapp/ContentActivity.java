@@ -177,7 +177,8 @@ public class ContentActivity extends AppCompatActivity{
         navigationView.setItemIconSize(150);
         View headerView = navigationView.getHeaderView(0);
         TextView helloName = (TextView) headerView.findViewById(R.id.tvHeaderHelloText);
-        helloName.setText("New Name");
+        String helloUserString = "Hello "+"variablenamauser"+" !";
+        helloName.setText(helloUserString);
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.searchActivity,R.id.homeFragment, R.id.favouriteRestaurants, R.id.myAccountFragment
