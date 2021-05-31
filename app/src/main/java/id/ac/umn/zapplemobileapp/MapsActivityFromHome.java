@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -35,6 +37,14 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.api.model.AutocompleteSessionToken;
 
+import java.util.ArrayList;
+
+import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
+import id.ac.umn.zapplemobileapp.apihelper.UtilsApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MapsActivityFromHome extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -43,6 +53,17 @@ public class MapsActivityFromHome extends FragmentActivity implements OnMapReady
     private View mapView;
     private Location mLastKnownLocation;
     private LocationCallback locationCallback;
+
+    //access API
+    Context mContext;
+    BaseApiService mApiService;
+    Call<ArrayList<RestaurantModel>> callPost;
+    ArrayList<RestaurantModel> hasilPost;
+
+    private SharedPreferences sharedpreferences;
+    private String sharedPrefFile;
+    private String accessToken;
+    private final String ACCESSTOKEN_KEY = "accessToken";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +100,7 @@ public class MapsActivityFromHome extends FragmentActivity implements OnMapReady
             @Override
             public void onSuccess(LocationSettingsResponse locationSettingsResponse) {
                 getDeviceLocation();
+                loadRestaruantData();
             }
         });
 
@@ -156,5 +178,36 @@ public class MapsActivityFromHome extends FragmentActivity implements OnMapReady
                         }
                     }
                 });
+    }
+
+    private void loadRestaruantData() {
+        mApiService = UtilsApi.getAPIService();
+        mContext = this;
+        sharedPrefFile = mContext.getPackageName();
+        sharedpreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE);
+        accessToken = sharedpreferences.getString(ACCESSTOKEN_KEY, "0");
+        callPost = mApiService.getList(accessToken);
+        callPost.enqueue(new Callback<ArrayList<RestaurantModel>>() {
+            @Override
+            public void onResponse(Call<ArrayList<RestaurantModel>> call, Response<ArrayList<RestaurantModel>> response) {
+                hasilPost = response.body();
+                System.out.println("hasil" + hasilPost);
+                loadMaps();
+            }
+            @Override
+            public void onFailure(Call<ArrayList<RestaurantModel>> call, Throwable t) {
+                Toast.makeText(MapsActivityFromHome.this, "Gagal!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void loadMaps() {
+        for (int i = 0; i < hasilPost.size(); i++) {
+            float tempLat = Float.parseFloat(hasilPost.get(i).getLatitude());
+            float tempLong = Float.parseFloat(hasilPost.get(i).getLongitude());
+            mMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(tempLat, tempLong))
+                    .title(hasilPost.get(i).getName()));
+        }
     }
 }
