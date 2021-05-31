@@ -89,7 +89,7 @@ public class SearchActivity extends AppCompatActivity {
         });
 
     }
-    
+
 
     private void setupLayout() {
         intent = getIntent();

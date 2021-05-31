@@ -25,6 +25,8 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.w3c.dom.Text;
+
 import id.ac.umn.zapplemobileapp.fragments.AboutUsFragment;
 import id.ac.umn.zapplemobileapp.fragments.EachRestaurantFragment;
 import id.ac.umn.zapplemobileapp.fragments.SettingsFragment;
@@ -173,6 +175,9 @@ public class ContentActivity extends AppCompatActivity{
 
         navigationView.setItemIconTintList(null);
         navigationView.setItemIconSize(150);
+        View headerView = navigationView.getHeaderView(0);
+        TextView helloName = (TextView) headerView.findViewById(R.id.tvHeaderHelloText);
+        helloName.setText("New Name");
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.searchActivity,R.id.homeFragment, R.id.favouriteRestaurants, R.id.myAccountFragment
