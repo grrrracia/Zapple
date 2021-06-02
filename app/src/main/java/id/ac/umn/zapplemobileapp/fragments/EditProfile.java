@@ -172,8 +172,14 @@ public class EditProfile extends Fragment {
         }else{
             name = etFullName.getText().toString();
         }
+        if(file!=null){
+            MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+            callEdit = mApiService.editUser(accessToken, filePart, email, name);
+        }else{
+            callEdit = mApiService.editUser(accessToken, email, name);
+        }
 
-        callEdit = mApiService.editUser(accessToken, name, email);
+
         callEdit.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -230,6 +236,8 @@ public class EditProfile extends Fragment {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == Activity.RESULT_OK) {
             final Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             File file = savebitmap(bitmap);
+            BitmapDrawable ob = new BitmapDrawable(getResources(), bitmap);
+            CLeditProPicture.setBackground(ob);
 
             MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
 

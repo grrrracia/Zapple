@@ -50,6 +50,10 @@ public interface    BaseApiService {
     @POST("user/info")
     Call<ResponseBody> editUser(@Header("x-access-token") String accessToken, @Field("name") String name, @Field("email") String email);
 
+    @Multipart
+    @POST("user/emailandpicture")
+    Call<ResponseBody> editUser(@Header("x-access-token") String accessToken, @Part MultipartBody.Part photo, String email, String name );
+
     @FormUrlEncoded
     @POST("user/favourites/add")
     Call<ResponseBody> setFavourite(@Header("x-access-token") String accessToken, @Field("restaurantID") Integer restaurantID);
