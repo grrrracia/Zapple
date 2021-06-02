@@ -13,12 +13,15 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,26 +140,31 @@ public class AddAReviewActivity extends AppCompatActivity {
     }
 
 
+
     private File savebitmap(Bitmap bmp) {
-//        MediaStore.Images.Media.insertImage(getContentResolver(),bmp,"temp.png","temp");
-        String extStorageDirectory = Environment.DIRECTORY_PICTURES;
-        OutputStream outStream = null;
-        String temp = null;
-        File file = new File(extStorageDirectory, "temp.png");
-        if (file.exists()) {
-            file.delete();
-            file = new File(extStorageDirectory, "temp.png");
+        file = new File(mContext.getCacheDir(), "temp.png");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        try {
-            outStream = new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, outStream);
-            outStream.flush();
-            outStream.close();
+        Bitmap bitmap = bmp;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+        byte[] bitmapdata = bos.toByteArray();
 
-        } catch (Exception e) {
+//write the bytes in file
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return file;
     }
