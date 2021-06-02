@@ -138,9 +138,10 @@ public class AddAReviewActivity extends AppCompatActivity {
 
 
     private File savebitmap(Bitmap bmp) {
-        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+//        MediaStore.Images.Media.insertImage(getContentResolver(),bmp,"temp.png","temp");
+        String extStorageDirectory = Environment.DIRECTORY_PICTURES;
         OutputStream outStream = null;
-        // String temp = null;
+        String temp = null;
         File file = new File(extStorageDirectory, "temp.png");
         if (file.exists()) {
             file.delete();
