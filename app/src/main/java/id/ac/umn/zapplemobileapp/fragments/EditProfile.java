@@ -176,7 +176,7 @@ public class EditProfile extends Fragment {
             MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
             callEdit = mApiService.editUser(accessToken, filePart, email, name);
         }else{
-            callEdit = mApiService.editUser(accessToken, email, name);
+            callEdit = mApiService.editUser(accessToken, name, email);
         }
 
 
@@ -239,25 +239,25 @@ public class EditProfile extends Fragment {
             BitmapDrawable ob = new BitmapDrawable(getResources(), bitmap);
             CLeditProPicture.setBackground(ob);
 
-            MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
-
-            Call<ResponseBody> call = mApiService.changePP(accessToken, filePart);
-            call.enqueue(new Callback<ResponseBody>() {
-                @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                    ResponseBody jsonResponse = response.body();
-                    Fragment myAccoutFragment = new MyAccountFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.nav_host_fragment_container, myAccoutFragment);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
-                }
-
-                @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
-                    t.getLocalizedMessage();
-                }
-            });
+//            MultipartBody.Part filePart = MultipartBody.Part.createFormData("photo", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+//
+//            Call<ResponseBody> call = mApiService.changePP(accessToken, filePart);
+//            call.enqueue(new Callback<ResponseBody>() {
+//                @Override
+//                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                    ResponseBody jsonResponse = response.body();
+//                    Fragment myAccoutFragment = new MyAccountFragment();
+//                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//                    transaction.replace(R.id.nav_host_fragment_container, myAccoutFragment);
+//                    transaction.addToBackStack(null);
+//                    transaction.commit();
+//                }
+//
+//                @Override
+//                public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                    t.getLocalizedMessage();
+//                }
+//            });
         }
     }
 

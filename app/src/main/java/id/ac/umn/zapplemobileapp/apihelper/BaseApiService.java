@@ -52,7 +52,11 @@ public interface    BaseApiService {
 
     @Multipart
     @POST("user/emailandpicture")
-    Call<ResponseBody> editUser(@Header("x-access-token") String accessToken, @Part MultipartBody.Part photo, String email, String name );
+    Call<ResponseBody> editUser(
+            @Header("x-access-token") String accessToken,
+            @Part MultipartBody.Part photo,
+            @Part("email") String email,
+            @Part("name") String name);
 
     @FormUrlEncoded
     @POST("user/favourites/add")
