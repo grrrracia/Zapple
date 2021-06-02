@@ -238,8 +238,11 @@ public class EditProfile extends Fragment {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                     ResponseBody jsonResponse = response.body();
-                    Intent intent = new Intent(mContext, ContentActivity.class);
-                    startActivity(intent);
+                    Fragment myAccoutFragment = new MyAccountFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.nav_host_fragment_container, myAccoutFragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
                 }
 
                 @Override

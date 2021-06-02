@@ -67,7 +67,11 @@
         android:id="@+id/editProfile"
         android:name="id.ac.umn.zapplemobileapp.fragments.EditProfile"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfile_to_myAccountFragment"
+            app:destination="@id/myAccountFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addAReviewFrag"
         android:name="id.ac.umn.zapplemobileapp.fragments.AddAReviewFragment"
