@@ -75,7 +75,7 @@ public class EditProfile extends Fragment {
     ConstraintLayout CLeditProPicture;
 
     TextView btnChangeProfilePicture;
-
+    File file;
     EditText etFullName, etUsername, etEmail, etPassword, etConfirmPassword;
     ImageView btnSaveChange;
     Context mContext;
@@ -251,25 +251,29 @@ public class EditProfile extends Fragment {
     }
 
     private File savebitmap(Bitmap bmp) {
-        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-        OutputStream outStream = null;
-        // String temp = null;
-        File file = new File(extStorageDirectory, "temp.png");
-        if (file.exists()) {
-            file.delete();
-            file = new File(extStorageDirectory, "temp.png");
-
+        file = new File(mContext.getCacheDir(), "temp.png");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        try {
-            outStream = new FileOutputStream(file);
-            bmp.compress(Bitmap.CompressFormat.PNG, 100, outStream);
-            outStream.flush();
-            outStream.close();
+        Bitmap bitmap = bmp;
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0 /*ignored for PNG*/, bos);
+        byte[] bitmapdata = bos.toByteArray();
 
-        } catch (Exception e) {
+//write the bytes in file
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return file;
     }
