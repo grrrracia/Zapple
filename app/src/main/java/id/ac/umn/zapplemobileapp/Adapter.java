@@ -1,6 +1,5 @@
 package id.ac.umn.zapplemobileapp;
 
-import androidx.navigation.Navigation;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.json.JSONException;
@@ -30,14 +28,10 @@ import java.util.ArrayList;
 
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
 import id.ac.umn.zapplemobileapp.apihelper.UtilsApi;
-import id.ac.umn.zapplemobileapp.fragments.EachRestaurantFragment;
-import id.ac.umn.zapplemobileapp.fragments.HomeFragment;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-
-import static androidx.core.content.ContextCompat.startActivity;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     ArrayList<RestaurantModel> restaurantModels;

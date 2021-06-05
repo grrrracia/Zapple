@@ -42,37 +42,12 @@
                 android:background="#FFFFFF" />
 
             <LinearLayout
-                android:id="@+id/menuSettings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="20dp"
-                android:paddingTop="25dp"
-                android:paddingBottom="15dp">
-
-                <ImageView
-                    android:layout_width="75px"
-                    android:layout_height="75px"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/setting" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/glacialindifference_regular"
-                    android:text="Settings"
-                    android:textColor="@color/white"
-                    android:textSize="17dp" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/menuAboutUs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="20dp"
+                android:paddingTop="25dp"
                 android:paddingBottom="15dp">
 
                 <ImageView

@@ -2,9 +2,6 @@ package id.ac.umn.zapplemobileapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,8 +30,6 @@ import java.util.List;
 
 import id.ac.umn.zapplemobileapp.apihelper.BaseApiService;
 import id.ac.umn.zapplemobileapp.apihelper.UtilsApi;
-import id.ac.umn.zapplemobileapp.fragments.AboutUsFragment;
-import id.ac.umn.zapplemobileapp.fragments.AddAReviewFragment;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;

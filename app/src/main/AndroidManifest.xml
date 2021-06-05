@@ -60,13 +60,7 @@
             android:label="@string/title_activity_maps_from_home"/>
         <activity android:name=".EachRestaurantActivity" />
         <activity android:name=".AddAReviewActivity" />
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
         <activity android:name=".UserReviewActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
         <activity android:name=".RestaurantReviewItem" />
         <activity android:name=".LandingPageActivity" />
         <activity android:name=".SignUpActivity" />

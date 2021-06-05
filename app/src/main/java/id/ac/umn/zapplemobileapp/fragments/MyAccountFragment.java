@@ -46,7 +46,6 @@ import retrofit2.Response;
 
 public class MyAccountFragment extends Fragment{
 
-    private MyAccountViewModel mViewModel;
     private TextView btnEditProfile;
     private TextView tvName;
     ImageView ivProfile;

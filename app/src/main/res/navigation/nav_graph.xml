@@ -11,10 +11,6 @@
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
         <action
-            android:id="@+id/action_homeFragment_to_eachRestaurant"
-            android:name="action_homeFragment_to_eachRestaurant"
-            app:destination="@id/eachRestaurant"/>
-        <action
             android:id="@+id/action_homeFragment_to_favouriteRestaurants"
             app:destination="@id/favouriteRestaurants" />
         <action
@@ -31,22 +27,10 @@
             app:destination="@id/editProfile" />
     </fragment>
     <fragment
-        android:id="@+id/eachRestaurant"
-        android:name="id.ac.umn.zapplemobileapp.fragments.EachRestaurantFragment"
-        android:label="each_restaurant_fragment"
-        tools:layout="@layout/fragment_each_restaurant" >
-        <action
-            android:id="@+id/action_eachRestaurant_to_addAReviewFrag"
-            app:destination="@id/addAReviewFrag" />
-    </fragment>
-    <fragment
         android:id="@+id/favouriteRestaurants"
         android:name="id.ac.umn.zapplemobileapp.fragments.FavouriteRestaurants"
         android:label="favourite_restaurants_fragment"
-        tools:layout="@layout/fragment_favourite_restaurant" >
-        <action
-            android:id="@+id/action_favouriteRestaurants_to_eachRestaurant"
-            app:destination="@id/eachRestaurant" />
+        tools:layout="@layout/fragment_favourite_restaurant">
     </fragment>
     <activity
         android:id="@+id/searchActivity"
@@ -72,9 +56,4 @@
             android:id="@+id/action_editProfile_to_myAccountFragment"
             app:destination="@id/myAccountFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/addAReviewFrag"
-        android:name="id.ac.umn.zapplemobileapp.fragments.AddAReviewFragment"
-        android:label="fragment_add_a_review"
-        tools:layout="@layout/fragment_add_a_review" />
 </navigation>

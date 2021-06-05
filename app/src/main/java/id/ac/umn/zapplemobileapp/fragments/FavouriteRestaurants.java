@@ -31,7 +31,6 @@ import retrofit2.Response;
 public class FavouriteRestaurants extends Fragment {
     Context mContext;
     RecyclerView recyclerView;
-    private FavouriteRestaurantsViewModel mViewModel;
     BaseApiService mApiService;
     Call<ArrayList<RestaurantModel>> callPost;
     ArrayList<RestaurantModel> hasilPost;

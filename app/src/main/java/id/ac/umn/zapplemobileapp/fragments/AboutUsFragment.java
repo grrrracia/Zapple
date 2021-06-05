@@ -17,8 +17,6 @@ import id.ac.umn.zapplemobileapp.R;
 
 public class AboutUsFragment extends Fragment {
 
-    private AboutUsViewModel mViewModel;
-
     public static AboutUsFragment newInstance() {
         return new AboutUsFragment();
     }
@@ -32,12 +30,5 @@ public class AboutUsFragment extends Fragment {
         contentActivity.pageTitle.setText("About Us");
         return view;
     }
-
-//    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        mViewModel = new ViewModelProvider(this).get(AboutUsViewModel.class);
-//        // TODO: Use the ViewModel
-//    }
 
 }

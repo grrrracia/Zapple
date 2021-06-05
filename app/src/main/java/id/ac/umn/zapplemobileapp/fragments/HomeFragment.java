@@ -1,11 +1,8 @@
 package id.ac.umn.zapplemobileapp.fragments;
 
 import androidx.core.app.ActivityCompat;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +12,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,8 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import id.ac.umn.zapplemobileapp.ContentActivity;
-import id.ac.umn.zapplemobileapp.MainActivity;
-import id.ac.umn.zapplemobileapp.MapsActivity;
 import id.ac.umn.zapplemobileapp.MapsActivityFromHome;
 import id.ac.umn.zapplemobileapp.R;
 import id.ac.umn.zapplemobileapp.SearchActivity;
@@ -184,6 +178,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_eachRestaurant);
+//        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_eachRestaurant);
     }
 }
